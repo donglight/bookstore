@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zdd.bookstore.dao.OrderDetailMapper">
+  <resultMap id="BaseResultMap" type="org.zdd.bookstore.model.entity.OrderDetail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="order_detail_id" jdbcType="INTEGER" property="orderDetailId" />
+    <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="book_id" jdbcType="INTEGER" property="bookId" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="mount" jdbcType="INTEGER" property="mount" />
+    <result column="unit_price" jdbcType="DECIMAL" property="unitPrice" />
+    <result column="total_price" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="post_status" jdbcType="VARCHAR" property="postStatus" />
+    <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+    <result column="receive_status" jdbcType="VARCHAR" property="receiveStatus" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+  </resultMap>
+</mapper>

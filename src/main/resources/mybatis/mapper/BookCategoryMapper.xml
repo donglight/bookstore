@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zdd.bookstore.model.dao.BookCategoryMapper">
+  <resultMap id="BaseResultMap" type="org.zdd.bookstore.model.entity.BookCategory">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cate_id" jdbcType="INTEGER" property="cateId" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+    <result column="is_parent" jdbcType="BIT" property="isParent" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+  </resultMap>
+</mapper>

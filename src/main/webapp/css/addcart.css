@@ -1,0 +1,48 @@
+.tip_div {
+	height: 200px;
+	border-bottom: 4px solid #f5f5f5;
+	padding: 70px;
+	margin: 0 auto;
+}
+#success{
+	height: 40px;
+	background: url(../img/icon_r_201404.png) no-repeat 0 0;
+	overflow: hidden;
+    color: #646464;
+    padding-left:40px ;
+}
+.success_text{
+    font: 20px/30px "microsoft yahei","宋体";
+	color: #646464;
+}
+.things span{
+	font: 16px/30px "microsoft yahei","宋体";
+	margin-left: 40px;
+}
+.next_div{
+	height: 100px;
+	padding: 30px 0 0 60px;
+}
+.toCart{
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #FF8800;
+	color: #fff!important;
+	border-radius: 3px;
+	text-align: center;
+	margin-right:30px;
+	font-size: 20px;
+}
+.toShopping{
+	display: inline-block;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #CCCCCC;
+	color: #666666!important;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 20px;
+}

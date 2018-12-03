@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zdd.bookstore.model.dao.custom.CustomMapper">
+
+  <!-- 订单表和订单详情表关联查询结果集 -->
+  <resultMap id="ordersResultMap" type="org.zdd.bookstore.model.entity.custom.OrderCustom">
+    <!--
+      自定义mapper，完成多表查询
+    -->
+    <id column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <!-- 一对一 -->
+    <association property="order" javaType="org.zdd.bookstore.model.entity.Orders">
+      <id column="order_id" jdbcType="VARCHAR" property="orderId" />
+      <result column="user_id" jdbcType="INTEGER" property="userId" />
+      <result column="payment" jdbcType="VARCHAR" property="payment" />
+      <result column="payment_type" jdbcType="INTEGER" property="paymentType" />
+      <result column="status" jdbcType="VARCHAR" property="status" />
+      <result column="post_fee" jdbcType="VARCHAR" property="postFee" />
+      <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+      <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+      <result column="order_mount" jdbcType="INTEGER" property="orderMount" />
+      <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+      <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+      <result column="close_time" jdbcType="TIMESTAMP" property="closeTime" />
+      <result column="shipping_name" jdbcType="VARCHAR" property="shippingName" />
+      <result column="shipping_code" jdbcType="VARCHAR" property="shippingCode" />
+      <result column="buyer_message" jdbcType="VARCHAR" property="buyerMessage" />
+      <result column="buyer_rate" jdbcType="INTEGER" property="buyerRate" />
+    </association>
+
+    <association property="orderShipping" javaType="org.zdd.bookstore.model.entity.OrderShipping">
+      <id column="order_id" jdbcType="VARCHAR" property="orderId" />
+      <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+      <result column="receiver_phone" jdbcType="VARCHAR" property="receiverPhone" />
+      <result column="receiver_mobile" jdbcType="VARCHAR" property="receiverMobile" />
+      <result column="receiver_state" jdbcType="VARCHAR" property="receiverState" />
+      <result column="receiver_city" jdbcType="VARCHAR" property="receiverCity" />
+      <result column="receiver_district" jdbcType="VARCHAR" property="receiverDistrict" />
+      <result column="receiver_address" jdbcType="VARCHAR" property="receiverAddress" />
+      <result column="receiver_zip" jdbcType="VARCHAR" property="receiverZip" />
+      <result column="created" jdbcType="TIMESTAMP" property="created" />
+      <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+    </association>
+
+
+
+    <!-- 一对多关联映射 -->
+    <collection property="orderDetails" ofType="org.zdd.bookstore.model.entity.OrderDetail">
+
+      <id column="order_detail_id" jdbcType="INTEGER" property="orderDetailId" />
+      <result column="order_number" jdbcType="VARCHAR" property="orderNumber" />
+      <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+      <result column="book_id" jdbcType="INTEGER" property="bookId" />
+      <result column="store_id" jdbcType="INTEGER" property="storeId" />
+      <result column="mount" jdbcType="INTEGER" property="mount" />
+      <result column="unit_price" jdbcType="DECIMAL" property="unitPrice" />
+      <result column="total_price" jdbcType="DECIMAL" property="totalPrice" />
+      <result column="post_status" jdbcType="VARCHAR" property="postStatus" />
+      <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+      <result column="receive_status" jdbcType="VARCHAR" property="receiveStatus" />
+      <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+      <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    </collection>
+
+  </resultMap>
+
+  <select id="findOrdersByUserId" parameterType="int" resultMap="ordersResultMap">
+
+    SELECT
+      o.order_id,
+      o.user_id,
+      o.payment,
+      o.payment_type,
+      o.status,
+      o.post_fee,
+      o.create_time,
+      o.update_time,
+      o.order_mount,
+      o.payment_time,
+      o.end_time,
+      o.close_time,
+      o.shipping_name,
+      o.shipping_code,
+      o.buyer_message,
+      o.buyer_rate,
+      os.order_id,
+      os.receiver_name,
+      os.receiver_phone,
+      os.receiver_mobile,
+      os.receiver_state,
+      os.receiver_city,
+      os.receiver_district,
+      os.receiver_address,
+      os.receiver_zip,
+      os.created,
+      os.updated,
+      od.order_detail_id,
+      od.order_number,
+      od.order_id,
+      od.book_id,
+      od.store_id,
+      od.mount,
+      od.unit_price,
+      od.total_price,
+      od.post_status,
+      od.delivery_time,
+      od.receive_status,
+      od.image_url,
+      od.book_name
+    FROM
+     (`orders` o INNER JOIN `order_shipping` os ON o.order_id = os.order_id)
+      INNER JOIN `order_detail` od ON o.order_id = od.order_id AND o.user_id = #{userId}
+
+  </select>
+
+  <select id="findOrdersByStoreId" parameterType="int" resultMap="ordersResultMap">
+
+    SELECT
+      o.order_id,
+      o.user_id,
+      o.payment,
+      o.payment_type,
+      o.status,
+      o.post_fee,
+      o.create_time,
+      o.update_time,
+      o.order_mount,
+      o.payment_time,
+      o.end_time,
+      o.close_time,
+      o.shipping_name,
+      o.shipping_code,
+      o.buyer_message,
+      o.buyer_rate,
+      os.order_id,
+      os.receiver_name,
+      os.receiver_phone,
+      os.receiver_mobile,
+      os.receiver_state,
+      os.receiver_city,
+      os.receiver_district,
+      os.receiver_address,
+      os.receiver_zip,
+      os.created,
+      os.updated,
+      od.order_detail_id,
+      od.order_number,
+      od.order_id,
+      od.book_id,
+      od.store_id,
+      od.mount,
+      od.unit_price,
+      od.total_price,
+      od.post_status,
+      od.delivery_time,
+      od.receive_status,
+      od.image_url,
+      od.book_name
+    FROM
+     (`orders` o INNER JOIN `order_shipping` os ON o.order_id = os.order_id)
+      INNER JOIN `order_detail` od ON o.order_id = od.order_id AND od.store_id = #{storeId}
+
+  </select>
+
+  <!--用户所属角色查询-->
+  <select id="findRolesByUserId" parameterType="int" resultType="org.zdd.bookstore.model.entity.Role">
+
+    SELECT
+      r.role_id AS roleId,
+      r.name,
+      r.code,
+      r.description,
+      r.created,
+      r.updated
+    FROM
+      `user_role` ur
+    INNER JOIN `role` r ON ur.role_id = r.role_id AND ur.user_id = #{userId}
+
+  </select>
+
+  <!--角色拥有的权限列表-->
+  <select id="findPrivilegesByRoleId" parameterType="int" resultType="org.zdd.bookstore.model.entity.Privilege">
+
+    SELECT
+      p.priv_id AS privId,
+      p.name,
+      p.code,
+      p.url,
+      p.parent_id AS parentId,
+      p.is_parent AS isParent,
+      p.created,
+      p.updated
+    FROM
+      `role_privilege` rp
+    INNER JOIN `privilege` p ON rp.privilege_id = p.priv_id AND rp.role_id = #{roleId}
+
+  </select>
+
+  <!--查询商家类型的用户-->
+  <select id="findBusinesses" parameterType="int" resultType="org.zdd.bookstore.model.entity.User">
+
+    SELECT
+      u.user_id as userId,
+      u.username,
+      u.nickname,
+      u.password,
+      u.gender,
+      u.email,
+      u.phone,
+      u.zip_code as zipCode,
+      u.location,
+      u.detail_address as detailAddress,
+      u.identity,
+      u.active,
+      u.code,
+      u.updated,
+      u.created
+    FROM
+      `user` u
+    INNER JOIN `user_role` ur ON u.user_id = ur.user_id AND u.active = 1 AND (ur.role_id = #{role_id} OR ur.role_id = 1)
+
+  </select>
+
+</mapper>

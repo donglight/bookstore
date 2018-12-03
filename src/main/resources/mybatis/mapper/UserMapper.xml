@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zdd.bookstore.model.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="org.zdd.bookstore.model.entity.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="detail_address" jdbcType="VARCHAR" property="detailAddress" />
+    <result column="identity" jdbcType="VARCHAR" property="identity" />
+    <result column="active" jdbcType="CHAR" property="active" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+  </resultMap>
+</mapper>

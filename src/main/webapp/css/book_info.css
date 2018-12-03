@@ -1,0 +1,179 @@
+.name_info {
+    font-family: "Verdana","Microsoft Yahei";
+    font-weight: normal;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 0 6px 12px 0;
+}
+.name_info h1 {
+    line-height: 24px;
+    max-height: 48px;
+    _height: expression(this.scrollHeight>48 ? "48px":"auto");
+    overflow: hidden;
+    color: #323232;
+    font-size: 18px;
+    margin: 0 auto;
+}
+.name_info h2 {
+    padding-top: 6px;
+    max-height: 96px;
+    _height: expression(this.scrollHeight>96 ? "96px":"auto");
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.book_info_span{
+	font-family: "microsoft yahei";
+	font-size: 14px;
+	margin-right: 40px;
+}
+.book_price{
+	width: 100%;
+	height: 100px;
+	font-size: 16px;
+	margin-top: 10px;
+	padding: 25px 0px 10px 25px;
+	background-color: #ebebeb;
+}
+.number_line_through{
+	text-decoration: line-through;
+}
+.what_price{
+	color: #8f8f8f;
+	font-size: 18px;
+}
+.price_info{
+	height: 50px;
+	line-height: 50px;
+}
+.buy_box .buy_div{
+	float: left;
+	margin-top:50px ;
+	margin-right: 20px;
+}
+.buy_box a:hover{
+	color: #CCCCCC;
+}
+#buy_num{
+	width: 38px!important;
+    height: 32px;
+    line-height: 32px;
+    border: 0;
+    background: #fff;
+    text-align: center;
+}
+.cart{
+	width: 130px;
+	height: 35px;
+	background-color: #ff2832;
+    border-radius:2px ;
+}
+.cart_icon {
+    float: left;
+    width: 20px;
+    height: 19px;
+    background: url(../img/product_sprites.png) no-repeat -40px -35px;
+    margin: 9px 4px 0 0;
+}
+.add_cart{
+	height: 36px;
+    font: 16px/36px "Microsoft Yahei";
+    overflow: hidden;
+    margin: 0 0 3px 10px;
+    float: left;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #fff;
+}
+.buy_now_div{
+	width: 96px;
+	height: 35px;
+	background-color: #FF5C00;
+    border-radius:2px ;
+}
+.buy_now{
+	height: 36px;
+    font: 16px/36px "Microsoft Yahei";
+    overflow: hidden;
+    margin: 0 0 3px 10px;
+    float: left;
+    padding: 0 6px;
+    border-radius:3px;
+    text-decoration: none;
+    color: #fff;
+}
+.clear{
+	clear: both;
+}
+.buy_tip{
+	color: #969696;
+    line-height: 20px;
+    width: 630px;
+    overflow: hidden;
+    *padding-top: 3px;
+}
+.buy_tip b{
+	font-weight: normal;
+    color: #ff2832;
+    padding: 0 5px;
+}
+.product_left{
+	border: 1px solid #ccc;
+}
+.product_left_ul{
+	width: 194px;
+	margin: 0 auto;
+	padding-bottom: 8px;
+}
+.product_left_ul li{
+	padding: 10px;
+	border-bottom:1px dashed #ccc;
+}
+.product_left h3{
+	height: 30px;
+    color: #646464;
+    font: 17px/30px "Microsoft Yahei";
+    overflow: hidden;
+    padding: 5px 0 0 25px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    position: relative;
+    z-index: 333;
+}
+#key{
+	height: 60px;
+    padding: 0 22px 0 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#key li{
+	padding-left: 20px;
+    width: 260px;
+    overflow: hidden;
+    float: left;
+    line-height: 22px;
+    height: 22px;
+    color: #323232;
+}
+.title{
+	height: 25px;
+	font-family: "新宋体";
+	border-left: 2px solid #00BFFF;
+	margin-bottom:10px ;
+}
+.title span{
+	display: inline-block;
+	height: 25px;
+	min-width: 80px;
+	padding-right:10px ;
+	line-height: 32px;
+	font-size: 16px;
+	color: #fff;
+	background-color: #FF8800;
+}
+ pre{
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    background-color:white;
+    margin-bottom: 20px;
+ }

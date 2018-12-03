@@ -1,0 +1,101 @@
+body{
+	font-size: 12px;
+	border: none;
+}
+input{	
+background: transparent;
+border:none;
+vertical-align: middle;
+outline: none;
+}
+#above{
+	height: 120px;
+}
+#img{
+	float: left;
+}
+.clear{
+	clear: both;
+}
+#middle{
+	height: 600px;
+	background: url(../img/advertisement.jpg) no-repeat fixed center;
+}
+#loginForm{
+	width: 300px;
+	height: 430px;
+	margin-left:65%;
+	border: 1px solid #eef2f4;
+	position: absolute;
+	top: 220px;
+	padding: 20px;
+}
+#register{
+	width: 300px;
+	font-size: 20px;
+	font-family: "microsoft yahei";
+}
+#username{
+	width: 270px;
+	height: 30px;
+	margin-left: 28px;
+}
+#password{
+	width: 270px;
+	height: 30px;
+	margin-left: 28px;
+}
+#loginButton{
+	width: 250px;
+    height: 30px;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    background: dodgerblue;
+    border: 1px solid dodgerblue;
+    margin-left:30px;
+    cursor: pointer;
+   	border-radius: 3px;
+}
+#loginButton:hover{
+	background-color:deepskyblue;
+}
+#username_div {
+	width: 300px;
+	border: 1px #CCCCCC solid;
+	margin-top: 30px;
+}
+#password_div{
+	width: 300px;
+	border: 1px #CCCCCC solid;
+}
+#row1{
+	position: absolute;
+	width:20px;
+	height: 20px;
+	margin-top: 6px;
+	margin-left: 5px;
+	background-image:url(../img/sprite1.png) ;
+	background-position:0 -100px ;
+}
+#row2{
+	position: absolute;
+	width:20px;
+	height: 20px;
+	margin-top: 6px;
+	margin-left: 5px;
+	background-image:url(../img/sprite1.png) ;
+	background-position:-24px -100px ;
+}
+.margin{
+	margin: 10px;
+}
+.tips{
+	margin: 0;
+	font-size: 12px;
+	line-height: 30px;
+	height: 30px;
+}
+.error{
+	color: red;
+}

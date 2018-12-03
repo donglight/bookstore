@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zdd.bookstore.model.dao.BookInfoMapper">
+  <resultMap id="BaseResultMap" type="org.zdd.bookstore.model.entity.BookInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="book_id" jdbcType="INTEGER" property="bookId" />
+    <result column="book_category_id" jdbcType="INTEGER" property="bookCategoryId" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="outline" jdbcType="VARCHAR" property="outline" />
+    <result column="detail" jdbcType="VARCHAR" property="detail" />
+    <result column="press" jdbcType="VARCHAR" property="press" />
+    <result column="publish_date" jdbcType="TIMESTAMP" property="publishDate" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="translator" jdbcType="VARCHAR" property="translator" />
+    <result column="isbn" jdbcType="VARCHAR" property="isbn" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="pages" jdbcType="INTEGER" property="pages" />
+    <result column="catalog" jdbcType="VARCHAR" property="catalog" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="member_price" jdbcType="DECIMAL" property="memberPrice" />
+    <result column="deal_mount" jdbcType="INTEGER" property="dealMount" />
+    <result column="look_mount" jdbcType="INTEGER" property="lookMount" />
+    <result column="discount" jdbcType="DECIMAL" property="discount" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="store_mount" jdbcType="INTEGER" property="storeMount" />
+    <result column="store_time" jdbcType="TIMESTAMP" property="storeTime" />
+    <result column="pack_style" jdbcType="VARCHAR" property="packStyle" />
+    <result column="is_shelf" jdbcType="INTEGER" property="isShelf" />
+  </resultMap>
+</mapper>

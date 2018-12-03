@@ -1,0 +1,118 @@
+.cartheader{
+	width: 1050px;
+	height: 120px;
+	padding-left:30px;
+	margin: 0;
+}
+.cartheader div{
+	float: left;
+}
+.img_div{
+	width: 235px;
+	padding: 0;
+	margin-top: 20px;
+}
+.cart_text_div{
+	height: 100%;
+	width: 100px;
+	padding-top: 50px;
+	padding-left: 0px;
+}
+.cart_text_span{
+	font: bold 24px "microsoft yahei";
+}
+.process{
+	float: right!important;
+	width: 634px;
+	height: 36px;
+	background: url(../img/procedure_bg.png) 0 0 no-repeat;
+	font: bold 14px/36px "Microsoft Yahei";
+	color: #646464;
+	margin-top: 50px;
+}
+.cart_text{
+	color: #646464;
+	width: 190px;
+	display: inline-block;
+	text-align: center;
+}
+#this_process{
+	color: #fff;
+}
+
+/**
+ * table
+ */
+#table_head th{
+	padding: 20px;
+	font-size: 16px;
+}
+#cart_table_div{
+	width: 1050px;
+	margin: 50px auto;
+	border: 1px solid #CCCCCC;
+	background-color: #fafafa;
+}
+.tcol1{
+	text-align: center;
+}
+
+.cart_item{
+	border-bottom: 1px solid #ccc;
+}
+
+.cart_item span{
+	font: 14px/34px "microsoft yahei";
+}
+.cart_item a{
+	font: "microsoft yahei";
+	color: #000000;
+}
+.num a:hover{
+	background-color: #FF2832;
+}
+.shop_intro td{
+	padding-top: 30px;
+	font-size: 16px;
+	font-weight: 400;			
+}
+.tfoot{
+	height: 50px;
+}
+.shop_total{
+	color: red;
+	font-size: 16px;
+	font-weight: bold;
+}
+#cart_table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.account_div {
+    width: 1000px;
+    height: 72px;
+    z-index: 10;
+    margin: 20px auto;
+    padding: 20px 62px;
+    background: url(../img/shopping_total.png) 0 center no-repeat;
+    position: relative;
+}
+#batch{
+	float: left;
+}
+#shopping_total{
+	float: right;
+}
+.total_p{
+	float: left;
+	padding:10px 10px 0px 0px;
+}
+.buy_num{
+	width: 38px!important;
+    height: 32px;
+    line-height: 32px;
+    border: 0;
+    background: #fff;
+    text-align: center;
+}

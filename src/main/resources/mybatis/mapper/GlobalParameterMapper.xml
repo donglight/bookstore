@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zdd.bookstore.model.dao.GlobalParameterMapper">
+  <resultMap id="BaseResultMap" type="org.zdd.bookstore.model.entity.GlobalParameter">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="para_id" jdbcType="INTEGER" property="paraId" />
+    <result column="web_name" jdbcType="VARCHAR" property="webName" />
+    <result column="reg_clause" jdbcType="VARCHAR" property="regClause" />
+    <result column="notice" jdbcType="VARCHAR" property="notice" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="postcode" jdbcType="VARCHAR" property="postcode" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="copyright" jdbcType="VARCHAR" property="copyright" />
+    <result column="weblogo" jdbcType="VARCHAR" property="weblogo" />
+    <result column="afford_method" jdbcType="VARCHAR" property="affordMethod" />
+    <result column="shops_stream" jdbcType="VARCHAR" property="shopsStream" />
+    <result column="post_method" jdbcType="VARCHAR" property="postMethod" />
+    <result column="post_price" jdbcType="DECIMAL" property="postPrice" />
+    <result column="post_desc" jdbcType="VARCHAR" property="postDesc" />
+    <result column="work_time" jdbcType="VARCHAR" property="workTime" />
+    <result column="after_service" jdbcType="VARCHAR" property="afterService" />
+    <result column="law" jdbcType="VARCHAR" property="law" />
+    <result column="commques" jdbcType="VARCHAR" property="commques" />
+    <result column="deal_rule" jdbcType="VARCHAR" property="dealRule" />
+  </resultMap>
+</mapper>

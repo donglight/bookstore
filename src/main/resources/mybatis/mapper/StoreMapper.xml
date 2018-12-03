@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zdd.bookstore.model.dao.StoreMapper">
+  <resultMap id="BaseResultMap" type="org.zdd.bookstore.model.entity.Store">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="store_manager_id" jdbcType="INTEGER" property="storeManagerId" />
+    <result column="store_phone_num" jdbcType="VARCHAR" property="storePhoneNum" />
+    <result column="store_telephone" jdbcType="VARCHAR" property="storeTelephone" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+    <result column="store_position" jdbcType="VARCHAR" property="storePosition" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+  </resultMap>
+</mapper>

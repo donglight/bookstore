@@ -1,0 +1,157 @@
+.orderheader{
+	width: 1050px;
+	height: 140px;
+	padding-left:30px;
+	margin: 0;
+}
+.orderheader div{
+	float: left;
+}
+.img_div{
+	width: 235px;
+	padding: 0;margin: 0;
+}
+.order_text_div{
+	height: 100%;
+	width: 120px;
+	padding-top: 50px;
+	padding-left: 0px;
+}
+.order_text_span{
+	font: bold 24px "microsoft yahei";
+}
+.process{
+	float: right!important;
+	width: 634px;
+	height: 36px;
+	background: url(../img/procedure_bg1.png) 0 0 no-repeat;
+	font: bold 14px/36px "Microsoft Yahei";
+	color: #646464;
+	margin-top: 50px;
+}
+.order_text{
+	color: #646464;
+	width: 190px;
+	display: inline-block;
+	text-align: center;
+}
+#this_process{
+	color: #fff;
+}
+
+/**
+ * table
+ */
+#table_head th{
+	padding: 20px 0 20px 0;
+	font-size: 16px;
+}
+#order_table_div{
+	width: 1050px;
+	margin: 50px auto;
+	border: 1px solid #CCCCCC;
+	background-color: #fafafa;
+}
+.tcol1{
+	text-align: center;
+}
+
+.order_item{
+	border-bottom: 1px solid #ccc;
+}
+
+.order_item span{
+	font: 14px/34px "microsoft yahei";
+}
+.order_item a{
+	font: "microsoft yahei";
+	color: #000000;
+}
+.order_item a:hover{
+	color: #FF0000;
+}
+.shop_intro td{
+	padding-top: 30px;
+	font-size: 16px;
+	font-weight: 400;			
+}
+.tfoot{
+	height: 50px;
+}
+.shop_total{
+	color: red;
+	font-size: 16px;
+	font-weight: bold;
+}
+#order_table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.account_div {
+    width: 1000px;
+    height: 72px;
+    z-index: 10;
+    margin: 20px auto;
+    padding: 20px 62px;
+    background: url(../img/shopping_total.png) 0 center no-repeat;
+    position: relative;
+}
+#batch{
+	float: left;
+}
+#shopping_total{
+	float: right;
+}
+.total_p{
+	float: left;
+	padding:10px 10px 0px 0px;
+}
+
+
+.order_title{
+	margin-top: 20px;
+}
+.pay_active{
+	color: #FFFFFF!important;
+	background-color: #FF0000!important;
+}
+
+#payment a{
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	background-color: #ccc;
+	margin-top: 5px;
+	border-radius: 4px;
+	font: 16px/30px "microsoft yahei";
+	line-height: 30px;
+	color: black;
+	text-align: center;
+}
+#payment a:hover{
+	background-color:#FF0000;
+}
+#to_paid_div{
+	height: 100px;
+	background-color: #fafafa;
+	border: 1px solid #CCCCCC;
+	margin-top: 50px;
+}
+
+#to_paid_info{
+	float: right;
+	padding-top:30px ;
+	text-align: center;
+	line-height: 50px;
+	padding-right: 30px;
+}
+#return_cart{
+	float: left;
+	padding: 30px;
+}
+
+#express{
+	font-size: 20px;
+}
+
