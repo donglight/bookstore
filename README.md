@@ -4,7 +4,7 @@
 - ## 依赖环境
   - ### jdk1.8,maven,mysql(创建bookstore数据库后，运行resource目录下的sql脚本，记得在application.properties改数据库密码,登录系统的账号和密码  自行查看user表)
 - ## 使用框架:
-  - ###后端是springboot+mybatis+shiro，前端界面使用bootstrap框架搭建  
+  - ### 后端是springboot+mybatis+shiro，前端界面使用bootstrap框架搭建  
 - ## 系统划分:
   - ### 该系统分为前台展示和后台管理两大模块。  
   - ### 前台主要是为消费者服务。该子系统实现了注册，登录，以及从浏览、下单到支付的整个流程，支付使用的是支付宝的沙箱环境，属于模拟环境。  
