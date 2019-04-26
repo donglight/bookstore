@@ -1,7 +1,8 @@
 # bookstore电商书城系统说明
 - ## 目的
   - ### 学习，熟悉开发流程。存在许多缺陷，比如购物车和订单不能分店铺统计和付款，还有许多地方的用户体验性也不好。
-- ## 依赖环境jdk1.8,maven,mysql(创建bookstore数据库后，运行resource目录下的sql脚本，记得在application.properties改数据库密码,登录系统的账号和密码  自行查看user表)
+- ## 依赖环境
+  - ### jdk1.8,maven,mysql(创建bookstore数据库后，运行resource目录下的sql脚本，记得在application.properties改数据库密码,登录系统的账号和密码  自行查看user表)
 - ## 使用框架:
   - ###后端是springboot+mybatis+shiro，前端界面使用bootstrap框架搭建  
 - ## 系统划分:
