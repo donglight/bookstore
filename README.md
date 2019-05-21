@@ -2,7 +2,7 @@
 - ## 目的
   - ### 在校学习，熟悉开发流程,。存在许多缺陷，比如购物车和订单不能分店铺统计和付款，界面较为简陋,另外还有许多地方的用户体验性也不好。
 - ## 依赖环境
-  - ### jdk1.8,maven,mysql(创建bookstore数据库后，运行resource目录下的sql脚本，记得在application.properties改数据库密码,登录系统的账号和密码  自行查看user表)
+  - ### jdk1.8,maven,mysql(创建bookstore数据库后，运行resource目录下的sql脚本，记得在application.properties改数据库密码,登录系统的账号和密码  自行查看user表,邮箱配置要改成自己)
 - ## 使用框架:
   - ### 后端是springboot+mybatis+shiro，前端界面使用bootstrap框架搭建  
 - ## 系统划分:
