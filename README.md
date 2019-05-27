@@ -4,9 +4,9 @@
 - ## 依赖环境
   - ### jdk1.8,maven,mysql
   - ### 注意事项
-    - 需要创建名为`bookstore`数据库,然后运行resource目录下的sql脚本，记得在application.properties改数据库密码
-    - 登录系统的账号和密码，自行查看user表
-    - application.properties中的邮箱配置要改成自己，否则不能注册系统账号
+    - 需要创建名为`bookstore`数据库,然后运行resource目录下的sql脚本，记得在`application.properties`改数据库密码
+    - 登录系统的账号和密码，自行查看`user`表
+    - `application.properties`中的邮箱配置要改成自己，否则不能注册系统账号
 - ## 使用框架:
   - ### 后端是springboot+mybatis+shiro，前端界面使用bootstrap框架搭建  
 - ## 系统划分:
