@@ -15,8 +15,8 @@
   - 后台主要是为商家服务，实现了权限管理，店铺、商品和订单等的管理，以及生成一些简单的报表信息。访问`/admin`进入后台  
 - ## 运行项目
   - 方法一：在ide(推荐idea)运行项目,配置好启动环境，直接运行main方法
-  - 方法二: 用springboot插件运行项目在项目根目录下,运行以下maven命令  
-    ```mvn spring-boot:run```
+  - 方法二: 用springboot插件运行项目   
+    在项目根目录下,运行以下maven命令  ```mvn spring-boot:run```
   - 方法三: 在ide或直接用maven打成的war包放到tomcat运行,具体操作可以百度，google
   - 方法四: 使用命令运行jar或war  
     ```java -jar xxx.jar```
