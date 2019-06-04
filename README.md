@@ -3,8 +3,8 @@
   - 目的: 在校学习，进一步熟悉Spring Boot开发模式，熟悉开发流程。
   - 缺陷: 购物车和订单不能分店铺统计和付款；界面较为简陋；另外还有许多地方的用户体验性也不好；富文本编辑器那边没有实现文件上传的功能；并没有完全符合       restful api风格等等。
 - ## 依赖环境
-  - ### jdk1.8,maven,mysql
-  - ### 注意事项
+  -  jdk1.8,maven,mysql
+  -  注意事项
     - 需要创建名为`bookstore`数据库,然后运行项目的`resource`目录下的sql脚本，记得在`application.properties`改数据库用户名和密码
     - 登录系统的账号和密码，请自行查看数据库下的`user`表
     - `application.properties`中的邮箱配置要改成自己，否则不能注册系统账号
