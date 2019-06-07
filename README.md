@@ -5,7 +5,7 @@
 - ## 依赖环境
   - jdk1.8,maven,mysql
   - 注意事项
-    - 需要创建名为`bookstore`数据库,然后运行项目的`resource`目录下的sql脚本，记得在`application.properties`改数据库用户名和密码
+    - 在数据库中创建名为`bookstore`数据库,然后运行项目的`resource`目录下的sql脚本，记得在`application.properties`改数据库配置信息
     - 登录系统的账号和密码，请自行查看数据库下的`user`表
     - `application.properties`中的邮箱配置要改成自己，否则不能注册系统账号
 - ## 使用框架
