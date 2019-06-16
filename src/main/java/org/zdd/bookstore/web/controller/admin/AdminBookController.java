@@ -1,6 +1,17 @@
 package org.zdd.bookstore.web.controller.admin;
 
 import com.github.pagehelper.PageInfo;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zdd.bookstore.common.utils.IDUtils;
 import org.zdd.bookstore.exception.BSException;
 import org.zdd.bookstore.model.dao.BookDescMapper;
@@ -9,17 +20,6 @@ import org.zdd.bookstore.model.entity.BookInfo;
 import org.zdd.bookstore.model.entity.Store;
 import org.zdd.bookstore.model.service.IBookInfoService;
 import org.zdd.bookstore.model.service.IStoreService;
-import org.apache.commons.lang.StringUtils;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -45,7 +45,7 @@ public class AdminBookController {
 
     @RequestMapping("toAddition")
     @RequiresPermissions("book-add")
-    public String toAddition(){
+    public String toAddition() {
         return "admin/book/add";
     }
 
@@ -62,17 +62,17 @@ public class AdminBookController {
     @RequestMapping(value = "/list")
     @RequiresPermissions("book-query")
     public String bookList(@RequestParam(defaultValue = "", required = false) String keywords,
-                          @RequestParam(value = "page",defaultValue = "1",required = false) int page,
-                          HttpSession session,
-                          Model model) {
+                           @RequestParam(value = "page", defaultValue = "1", required = false) int page,
+                           HttpSession session,
+                           Model model) {
         keywords = keywords.trim();
-        Store store = (Store)session.getAttribute("loginStore");
+        Store store = (Store) session.getAttribute("loginStore");
 
-        if(store != null){
-            PageInfo<BookInfo> books = bookInfoService.findBookListByCondition(keywords,0,page,10,store.getStoreId());
+        if (store != null) {
+            PageInfo<BookInfo> books = bookInfoService.findBookListByCondition(keywords, 0, page, 10, store.getStoreId());
             model.addAttribute("bookPageInfo", books);
             model.addAttribute("keywords", keywords);
-        }else {
+        } else {
             model.addAttribute("exception", "您请求的资源不存在");
             return "exception";
         }
@@ -82,6 +82,7 @@ public class AdminBookController {
 
     /**
      * 更新页面回显
+     *
      * @param bookId
      * @param model
      * @return
@@ -89,7 +90,7 @@ public class AdminBookController {
      */
     @RequestMapping("/echo")
     @RequiresPermissions("book-edit")
-    public String echo(int bookId,Model model) throws BSException {
+    public String echo(int bookId, Model model) throws BSException {
 
         BookInfo bookInfo = bookInfoService.adminFindById(bookId);
 
@@ -104,7 +105,7 @@ public class AdminBookController {
 
     @RequestMapping("/update")
     @RequiresPermissions("book-edit")
-    public String updateBook(BookInfo bookInfo, String bookDesc, String keywords,MultipartFile pictureFile, HttpServletRequest request,RedirectAttributes ra) throws Exception {
+    public String updateBook(BookInfo bookInfo, String bookDesc, String keywords, MultipartFile pictureFile, HttpServletRequest request, RedirectAttributes ra) throws Exception {
 
         uploadPicture(bookInfo, pictureFile, request);
         bookInfoService.updateBook(bookInfo, bookDesc);
@@ -114,7 +115,7 @@ public class AdminBookController {
 
     @RequestMapping("/deletion/{bookId}")
     @RequiresPermissions("book-delete")
-    public String deletion(@PathVariable("bookId") int bookId, String keywords, RedirectAttributes ra){
+    public String deletion(@PathVariable("bookId") int bookId, String keywords, RedirectAttributes ra) {
         bookInfoService.deleteBook(bookId);
         ra.addAttribute("keywords", keywords);
         return "redirect:/admin/book/list";
@@ -122,16 +123,16 @@ public class AdminBookController {
 
     @RequestMapping("/shelf")
     @RequiresPermissions("book-shelf")
-    public String bookOffShelf(int bookId, int isShelf, String keywords,RedirectAttributes ra){
+    public String bookOffShelf(int bookId, int isShelf, String keywords, RedirectAttributes ra) {
 
-        bookInfoService.changeShelfStatus(bookId,isShelf);
+        bookInfoService.changeShelfStatus(bookId, isShelf);
         ra.addAttribute("keywords", keywords);
         return "redirect:/admin/book/list";
     }
 
     private void uploadPicture(BookInfo bookInfo, MultipartFile pictureFile, HttpServletRequest request) throws IOException {
-        if(pictureFile != null){
-            if (StringUtils.isNotBlank(pictureFile.getOriginalFilename())) {
+        if (pictureFile != null) {
+            if (!StringUtils.isEmpty(pictureFile.getOriginalFilename())) {
                 String realPath = request.getSession().getServletContext().getRealPath("/" + urlPrefix);
                 //原始文件名称
                 String pictureFileName = pictureFile.getOriginalFilename();
