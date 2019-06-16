@@ -1,5 +1,11 @@
 package org.zdd.bookstore.model.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.DigestUtils;
+import org.springframework.util.StringUtils;
 import org.zdd.bookstore.common.pojo.BSResult;
 import org.zdd.bookstore.common.utils.BSResultUtil;
 import org.zdd.bookstore.config.UserResourceProperties;
@@ -11,13 +17,6 @@ import org.zdd.bookstore.model.entity.Store;
 import org.zdd.bookstore.model.entity.User;
 import org.zdd.bookstore.model.entity.UserRole;
 import org.zdd.bookstore.model.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.DigestUtils;
-import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
@@ -28,7 +27,6 @@ import java.util.UUID;
  * 用户服务
  */
 @Service
-@EnableConfigurationProperties(UserResourceProperties.class)
 public class UserServiceImpl implements IUserService {
 
     @Autowired
@@ -60,17 +58,17 @@ public class UserServiceImpl implements IUserService {
         //根据用户名查询用户信息
         Example userExample = new Example(User.class);
         Example.Criteria criteria = userExample.createCriteria();
-        criteria.andEqualTo("username",username).andEqualTo("active","1");
+        criteria.andEqualTo("username", username).andEqualTo("active", "1");
         List<User> users = userMapper.selectByExample(userExample);
 
-        if(users == null || users.size() == 0){
+        if (users == null || users.size() == 0) {
             return BSResultUtil.build(400, "用户名或密码错误");
         }
 
         //若不为空，取用户信息
         User user = users.get(0);
 
-        if(!DigestUtils.md5DigestAsHex(password.getBytes()).equals(user.getPassword())){
+        if (!DigestUtils.md5DigestAsHex(password.getBytes()).equals(user.getPassword())) {
             return BSResultUtil.build(400, "用户名或密码错误");
         }
 
@@ -79,6 +77,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 检查用户名是否存在
+     *
      * @param username
      * @return
      */
@@ -87,18 +86,19 @@ public class UserServiceImpl implements IUserService {
 
         Example userExample = new Example(User.class);
         Example.Criteria criteria = userExample.createCriteria();
-        criteria.andEqualTo("username",username);
+        criteria.andEqualTo("username", username);
         List<User> users = userMapper.selectByExample(userExample);
 
-        if(users == null || users.size() == 0){
+        if (users == null || users.size() == 0) {
             return BSResultUtil.build(200, "用户名可以使用", true);
-        }else{
+        } else {
             return BSResultUtil.build(400, "用户名已被注册", false);
         }
     }
 
     /**
      * 注册用户,向数据库插入一条记录
+     *
      * @param user
      * @return
      */
@@ -121,6 +121,7 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 激活用户
+     *
      * @param activeCode
      * @return
      */
@@ -130,27 +131,27 @@ public class UserServiceImpl implements IUserService {
 
         Example userExample = new Example(User.class);
         Example.Criteria criteria = userExample.createCriteria();
-        criteria.andEqualTo("code",activeCode);//code是激活码
+        criteria.andEqualTo("code", activeCode);//code是激活码
         List<User> users = userMapper.selectByExample(userExample);
-        if(users != null && users.size() != 0){
+        if (users != null && users.size() != 0) {
             User user = users.get(0);
             //设置激活状态为1激活
             user.setActive(userResourceProperties.getActive());
             //一次性激活码
             user.setCode(null);
-            userMapper.updateByPrimaryKey(user);
+            userMapper.updateByPrimaryKeySelective(user);
 
             //分配角色
             UserRole userRole = new UserRole();
             userRole.setUserId(user.getUserId());
             userRole.setCreated(new Date());
             userRole.setUpdated(new Date());
-            if(userResourceProperties.getOrdinaryCustomer().equals(user.getIdentity())){
+            if (userResourceProperties.getOrdinaryCustomer().equals(user.getIdentity())) {
                 //普通用户
                 userRole.setRoleId(Integer.parseInt(ordinaryRole));
 
                 userRoleMapper.insert(userRole);
-            }else if(userResourceProperties.getBusinessCustomer().equals(user.getIdentity())){
+            } else if (userResourceProperties.getBusinessCustomer().equals(user.getIdentity())) {
                 //企业用户或商家
                 userRole.setRoleId(Integer.parseInt(businessRole));
                 userRoleMapper.insert(userRole);
@@ -182,9 +183,9 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public BSResult updateUser(User user) {
-        if(StringUtils.isEmpty(user.getPassword())){
+        if (StringUtils.isEmpty(user.getPassword())) {
             user.setPassword(null);
-        }else{
+        } else {
             user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         }
         userMapper.updateByPrimaryKeySelective(user);
@@ -217,20 +218,21 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 修改密码
+     *
      * @param userId
      * @param oldPassword
      * @param newPassword
      * @return
      */
     @Override
-    public BSResult compareAndChange(int userId,String oldPassword, String newPassword) {
+    public BSResult compareAndChange(int userId, String oldPassword, String newPassword) {
         User user = userMapper.selectByPrimaryKey(userId);
         String password = user.getPassword();
-        if(password.equals(DigestUtils.md5DigestAsHex(oldPassword.getBytes()))){
+        if (password.equals(DigestUtils.md5DigestAsHex(oldPassword.getBytes()))) {
             user.setPassword(DigestUtils.md5DigestAsHex(newPassword.getBytes()));
             userMapper.updateByPrimaryKeySelective(user);
             return BSResultUtil.build(200, "修改密码成功");
-        }else{
+        } else {
             return BSResultUtil.build(400, "旧密码不正确");
         }
     }
