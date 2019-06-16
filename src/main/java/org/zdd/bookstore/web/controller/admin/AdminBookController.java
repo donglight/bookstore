@@ -133,7 +133,7 @@ public class AdminBookController {
     private void uploadPicture(BookInfo bookInfo, MultipartFile pictureFile, HttpServletRequest request) throws IOException {
         if (pictureFile != null) {
             if (!StringUtils.isEmpty(pictureFile.getOriginalFilename())) {
-                String realPath = request.getSession().getServletContext().getRealPath("/" + urlPrefix);
+                String realPath = request.getServletContext().getRealPath("/" + urlPrefix);
                 //原始文件名称
                 String pictureFileName = pictureFile.getOriginalFilename();
                 //新文件名称
