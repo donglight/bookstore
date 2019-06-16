@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(prefix = "user.default.info")
-@PropertySource(value = "classpath:resource.properties")
-/*
-  配置用户的默认属性
+@PropertySource(value = "classpath:resource.properties", encoding = "utf-8")
+/**
+ * 配置用户的默认属性
  */
 public class UserResourceProperties {
 

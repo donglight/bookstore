@@ -1,25 +1,26 @@
 package org.zdd.bookstore.pay;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- *类名：AlipayConfig
- *功能：基础配置类
- *详细：设置帐户有关信息及返回路径
- *修改日期：2017-04-05
- *说明：
- *以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
- *该代码仅供学习和研究支付宝接口使用，只是提供一个参考。*/
+ * 类名：AlipayConfig
+ * 功能：基础配置类
+ * 详细：设置帐户有关信息及返回路径
+ * 修改日期：2017-04-05
+ * 说明：
+ * 以下代码只是为了方便商户测试而提供的样例代码，商户可以根据自己网站的需要，按照技术文档编写,并非一定要使用该代码。
+ * 该代码仅供学习和研究支付宝接口使用，只是提供一个参考。
+ */
 
 
-@Configuration
-@ConfigurationProperties
-@PropertySource(value="classpath:zfbinfo.properties")
+@Component
+@ConfigurationProperties(prefix = "")
+@PropertySource(value = "classpath:zfbinfo.properties", encoding = "utf-8")
 public class AlipayConfig {
 
     //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -54,19 +55,19 @@ public class AlipayConfig {
     private String format;
 
 
-
-
 //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-        /**
+    /**
      * 写日志，方便测试（看网站需求，也可以改成把记录存入数据库）
-     * @param sWord 要写入日志里的文本内容*/
+     *
+     * @param sWord 要写入日志里的文本内容
+     */
 
 
     public void logResult(String sWord) {
         FileWriter writer = null;
         try {
-            writer = new FileWriter(logPath + "alipay_log_" + System.currentTimeMillis()+".txt");
+            writer = new FileWriter(logPath + "alipay_log_" + System.currentTimeMillis() + ".txt");
             writer.write(sWord);
         } catch (Exception e) {
             e.printStackTrace();

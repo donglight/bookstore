@@ -1,4 +1,4 @@
-package org.zdd.bookstore;
+/*package org.zdd.bookstore;
 
 import org.zdd.bookstore.model.dao.UserMapper;
 import org.zdd.bookstore.model.dao.custom.CustomMapper;
@@ -40,6 +40,4 @@ public class BookstoreApplicationTests {
         //List<OrderCustom> ordersByUserId = customMapper.findOrdersById(1);
     }
 
-
-
-}
+}*/
