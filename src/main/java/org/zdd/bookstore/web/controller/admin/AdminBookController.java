@@ -106,16 +106,26 @@ public class AdminBookController {
     @RequestMapping("/update")
     @RequiresPermissions("book-edit")
     public String updateBook(BookInfo bookInfo, String bookDesc, String keywords, MultipartFile pictureFile, HttpServletRequest request, RedirectAttributes ra) throws Exception {
-
         uploadPicture(bookInfo, pictureFile, request);
+        BookInfo originBook = bookInfoService.findById(bookInfo.getBookId());
         bookInfoService.updateBook(bookInfo, bookDesc);
+
+        //更新图片后，删除原来的图片
+        String realPath = request.getServletContext().getRealPath("/");
+        File uploadPic = new File(realPath + originBook.getImageUrl());
+        uploadPic.delete();
+        //重定向到书籍列表
         ra.addAttribute("keywords", keywords);
         return "redirect:/admin/book/list";
     }
 
     @RequestMapping("/deletion/{bookId}")
     @RequiresPermissions("book-delete")
-    public String deletion(@PathVariable("bookId") int bookId, String keywords, RedirectAttributes ra) {
+    public String deletion(@PathVariable("bookId") int bookId, String keywords, RedirectAttributes ra, HttpServletRequest request) throws BSException {
+        BookInfo bookInfo = bookInfoService.findById(bookId);
+        String realPath = request.getServletContext().getRealPath("/");
+        File uploadPic = new File(realPath + bookInfo.getImageUrl());
+        uploadPic.delete();
         bookInfoService.deleteBook(bookId);
         ra.addAttribute("keywords", keywords);
         return "redirect:/admin/book/list";
@@ -140,11 +150,11 @@ public class AdminBookController {
                 String newFileName = IDUtils.genShortUUID() + pictureFileName.substring(pictureFileName.lastIndexOf("."));
 
                 //上传图片
-                File uploadPic = new File(realPath + "/" + newFileName);
+                File uploadPic = new File(realPath + File.separator + newFileName);
 
                 //向磁盘写文件
                 pictureFile.transferTo(uploadPic);
-                bookInfo.setImageUrl(urlPrefix + "/" + newFileName);
+                bookInfo.setImageUrl(urlPrefix + File.separator + newFileName);
             }
         }
     }
