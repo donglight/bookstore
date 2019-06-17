@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/"; %>
 <!DOCTYPE html>
@@ -24,16 +24,18 @@
         function checkUserExist(value, element) {
             var $username = $(element);
             var isExist = false;
-            if ($.trim(value) != "") {
+            var trimVal = $.trim(value);
+            if (trimVal.length >= 3 && trimVal.length <=15) {
                 $.ajax({
                     type: "GET",
                     url: "user/checkUserExist",
                     data: {"username": value},
                     success: function (result) {
-                        $username.parent().next().html("");
+                        var $next = $username.parent().next();
+                        $next.html("");
                         if (result.data) {
                             isExist = true;
-                            $username.parent().next().html("<span class='ok'>" + result.message + "</span>");
+                            $next.html("<span class='ok'>" + result.message + "</span>");
                         }
                         isExist = result.data;
                     },
@@ -61,12 +63,15 @@
                     $(element).valid();
                 },
                 errorPlacement: function (error, element) {	//错误信息位置设置方法
-                    error.appendTo(element.parent().next());//这里的error是生成的错误对象，element是录入数据的对象,parent父元素，next()下一个
+                    var $next = element.parent().next();
+                    $next.html("").focus();
+                    error.appendTo($next);//这里的error是生成的错误对象，element是录入数据的对象,parent父元素，next()下一个
                 },
                 errorClass: "error",
                 rules: {
                     username: {
                         required: true,
+                        rangelength: [3, 15],
                         checkUserExist: true
                     },
                     password: {
@@ -90,7 +95,8 @@
                 },
                 messages: {
                     username: {
-                        required: "用户名不能为空"
+                        required: "用户名不能为空",
+                        rangelength: "用户名长度在{0}~{1}之间"
                     },
                     password: {
                         required: "密码不能为空",
