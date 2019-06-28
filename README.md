@@ -18,7 +18,7 @@
   - 方法一：在ide(推荐idea)运行项目,配置好启动环境，直接运行main方法
   - 方法二: 用springboot插件运行项目   
     在项目根目录下,运行以下maven命令  ```mvn spring-boot:run```
-  - 方法三: 在ide或直接用maven打成的war包放到tomcat运行,具体操作可以百度，google
+  - 方法三: 在ide或直接用maven打成的war包放到tomcat运行
   - 方法四: 使用命令运行jar或war  
     ```java -jar xxx.jar```
-  - 具体可以自行搜索`Spring Boot`项目的启动方式
+  - 具体可以自行百度搜索`Spring Boot`项目的启动方式
