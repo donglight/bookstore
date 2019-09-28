@@ -1,7 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/"; %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +72,7 @@
                         </p>
                         <div class="shop_button">
                             <p class="bottom_p">
-                                <a class="search_btn_cart" href="/cart/addition?bookId=${bookInfo.bookId}&buyNum=1">加入购物车</a>
+                                <a class="search_btn_cart" href="cart/addition?bookId=${bookInfo.bookId}&buyNum=1">加入购物车</a>
                                 <a class="search_btn_collect" href="javascript:void(0);">收藏</a>
                             </p>
                         </div>
