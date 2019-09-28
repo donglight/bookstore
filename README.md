@@ -17,8 +17,6 @@
   - 后台主要是springboot+mybatis+shiro...，前端界面主要使用bootstrap框架搭建，并使用了ueditor富文本编辑器、highcharts图表库  
 ## 运行项目
   - 方法一：在ide(推荐idea)运行项目,配置好启动环境，直接运行main方法
-  - 方法二: 用springboot插件运行项目   
-    在项目根目录下,运行以下maven命令  ```mvn spring-boot:run```
   - 方法三: 在ide或直接用maven打成的war包放到tomcat运行
   - 方法四: 使用命令运行jar或war，因为也是一个JavaWeb项目，所以只能打成war,把WEN-INF下面的东西也打包好)  
     ```java -jar xxx.war```
