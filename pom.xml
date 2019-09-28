@@ -149,26 +149,6 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <webResources>
-                        <resource>
-                            <directory>${project.basedir}/src/main/webapp/WEB-INF/lib</directory>
-                            <targetPath>WEB-INF/lib</targetPath>
-                            <filtering>false</filtering>
-                            <includes>
-                                <include>*.jar</include>
-                            </includes>
-                        </resource>
-                    </webResources>
-                    <warSourceExcludes>view/master/**</warSourceExcludes>
-                    <packagingExcludes>**/*.map</packagingExcludes>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
