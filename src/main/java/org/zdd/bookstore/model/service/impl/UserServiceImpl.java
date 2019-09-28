@@ -1,5 +1,7 @@
 package org.zdd.bookstore.model.service.impl;
 
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.cache.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import org.zdd.bookstore.model.dao.StoreMapper;
 import org.zdd.bookstore.model.dao.UserMapper;
 import org.zdd.bookstore.model.dao.UserRoleMapper;
 import org.zdd.bookstore.model.dao.custom.CustomMapper;
+import org.zdd.bookstore.model.dao.custom.MyShiroRealm;
 import org.zdd.bookstore.model.entity.Store;
 import org.zdd.bookstore.model.entity.User;
 import org.zdd.bookstore.model.entity.UserRole;
@@ -216,6 +219,9 @@ public class UserServiceImpl implements IUserService {
         return userMapper.selectByPrimaryKey(userId);
     }
 
+    @Autowired
+    private MyShiroRealm myShiroRealm;
+
     /**
      * 修改密码
      *
@@ -231,6 +237,10 @@ public class UserServiceImpl implements IUserService {
         if (password.equals(DigestUtils.md5DigestAsHex(oldPassword.getBytes()))) {
             user.setPassword(DigestUtils.md5DigestAsHex(newPassword.getBytes()));
             userMapper.updateByPrimaryKeySelective(user);
+            Cache<Object, AuthenticationInfo> authenticationCache = myShiroRealm.getAuthenticationCache();
+            if (authenticationCache != null) {
+                authenticationCache.remove(user.getUsername());
+            }
             return BSResultUtil.build(200, "修改密码成功");
         } else {
             return BSResultUtil.build(400, "旧密码不正确");
