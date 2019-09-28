@@ -22,3 +22,6 @@
   - 方法四: 使用命令运行jar或war(因为也是一个JavaWeb项目，所以只能打成war,把WEN-INF下面的东西也打包好)  
     ```java -jar xxx.war```
   - 具体可以自行百度搜索`Spring Boot`项目的启动方式
+## 云端访问地址
+  - 首页 ```http://47.97.205.3/bookstore```
+  - 后台管理 ```http://47.97.205.3/bookstore/admin/index```
