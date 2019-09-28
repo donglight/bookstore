@@ -19,7 +19,7 @@
   - 方法一：在ide(推荐idea)运行项目,配置好启动环境，先去掉继承的类SpringBootServletInitializer和方法，然后运行main方法
   - 方法二：在项目的根目录下执行maven命令  
     ``` mvn spring-boot:run```
-  - 方法三: 在ide或直接用maven打成的war包放到tomcat运行  
+  - 方法三: 在ide或直接用maven打成的war包放到tomcat运行,此时如果访问需要加上项目名的话，支付宝回调地址需要加上项目名称  
     ```mvn package -Dmaven.test.skip=true```
   - 方法四: 使用命令运行jar或war，因为也是一个传统JavaWeb项目，打成jar会无法访问静态资源，所以只能打成war,把WEN-INF下面的东西也打包好)  
     ```java -jar xxx.war```
