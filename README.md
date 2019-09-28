@@ -12,14 +12,15 @@
     - 在数据库中创建名为`bookstore`数据库,然后运行项目的`resource`目录下的sql脚本，记得在`application.properties`改数据库配置信息
     - 登录系统的账号和密码，请自行查看数据库下的`user`表 (管理员账号：admin 密码：123)
     - `application.properties`中的邮箱配置要改成自己，否则不能注册系统账号
+    -  使用沙箱环境的支付宝才能扫码支付，`application.properties`中的my.ip要改成自己，否则支付成功回调出错
 ## 使用框架
   - 后台主要是springboot+mybatis+shiro...，前端界面主要使用bootstrap框架搭建，并使用了ueditor富文本编辑器、highcharts图表库  
 ## 运行项目
   - 方法一：在ide(推荐idea)运行项目,配置好启动环境，直接运行main方法
   - 方法二: 用springboot插件运行项目   
     在项目根目录下,运行以下maven命令  ```mvn spring-boot:run```
-  - 方法三: 在ide或直接用maven打成的war包放到tomcat运行
-  - 方法四: 使用命令运行jar或war(因为也是一个JavaWeb项目，所以只能打成war,把WEN-INF下面的东西也打包好)  
+  - 方法三: 在ide或直接用maven打成的war包放到tomcat运行，(放在tomcat中jar包务必命名为bookstore(在配置文件写死的，支付回调时用到)
+  - 方法四: 使用命令运行jar或war，因为也是一个JavaWeb项目，所以只能打成war,把WEN-INF下面的东西也打包好)  
     ```java -jar xxx.war```
   - 具体可以自行百度搜索`Spring Boot`项目的启动方式
 ## 云端访问地址
