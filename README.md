@@ -18,6 +18,7 @@
 ## 运行项目
   - 方法一：在ide(推荐idea)运行项目,配置好启动环境，直接运行main方法
   - 方法三: 在ide或直接用maven打成的war包放到tomcat运行
+    ```mvn package -Dmaven.test.skip=true```
   - 方法四: 使用命令运行jar或war，因为也是一个传统JavaWeb项目，打成jar会无法访问静态资源，所以只能打成war,把WEN-INF下面的东西也打包好)  
     ```java -jar xxx.war```
   - 具体可以自行百度搜索`Spring Boot`项目的启动方式
