@@ -142,7 +142,7 @@ public class UserServiceImpl implements IUserService {
             user.setActive(userResourceProperties.getActive());
             //一次性激活码
             user.setCode(null);
-            userMapper.updateByPrimaryKeySelective(user);
+            userMapper.updateByPrimaryKey(user);
 
             //分配角色
             UserRole userRole = new UserRole();
