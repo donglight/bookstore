@@ -26,4 +26,4 @@
   - 具体可以自行百度搜索`Spring Boot`项目的启动方式
 ## 云端访问地址
   - 首页 ```http://47.97.205.3/bookstore```
-  - 后台管理 ```http://47.97.205.3/bookstore/admin/index```
+  - 后台管理 ```http://47.97.205.3/bookstore/admin```
