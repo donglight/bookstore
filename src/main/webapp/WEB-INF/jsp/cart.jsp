@@ -93,6 +93,7 @@
                         var shop_total_text = $shopTotal.text().trim();
                         var shop_total = (parseFloat(shop_total_text.substring(shop_total_text.indexOf("￥") + 1)) + unitPrice).toFixed(2);
                         $shopTotal.text("￥" + shop_total);
+                        $("#all_total").text("￥" + shop_total)
                     }
                 },
                 "json"
@@ -130,6 +131,7 @@
                             var shop_total_text = $shopTotal.text().trim();
                             var shop_total = (parseFloat(shop_total_text.substring(shop_total_text.indexOf("￥") + 1)) - unitPrice).toFixed(2);
                             $shopTotal.text("￥" + shop_total);
+                            $("#all_total").text("￥" + shop_total)
                         }
                     },
                     "json"
@@ -145,7 +147,8 @@
         }
 
         function checkTotal() {
-            var allTotal = parseFloat($("#all_total").text().trim()).toFixed(2);
+            var all_total_text = $("#all_total").text();
+            var allTotal = parseFloat(all_total_text.substring(all_total_text.indexOf("￥") + 1)).toFixed(2);
             if (allTotal <= 0) {
                 alert("亲，请至少购买一件商品!");
             } else {
@@ -268,9 +271,8 @@
             <div id="shopping_total">
                 <p class="total_p">
                     <span>总计：</span>
-                    <span class="shop_total" style="font-size: 20px;">
-                        ￥<span id="all_total"><fmt:formatNumber type="number" value="${cart.total}"
-                                                                pattern="0.00"/></span>
+                    <span id="all_total">
+                        ￥<fmt:formatNumber type="number" value="${cart.total}" pattern="0.00"/>
                     </span>
                 </p>
                 <a href="javascript:void(0);" class="total_btn" onclick="checkTotal()">填写订单</a>
