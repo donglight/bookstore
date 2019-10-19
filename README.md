@@ -2,6 +2,8 @@
 ## 目的
   - 目的: 在校学习，进一步熟悉Spring Boot开发模式，熟悉开发流程。
   - 本系统适用于JavaWeb初学者。
+## 使用技术
+  - 后台主要是springboot+mybatis+shiro+jsp(jsp已过时)...，前端界面主要使用bootstrap框架搭建，并使用了ueditor富文本编辑器、highcharts图表库 
 ## 系统划分与功能
   - 该系统分为前台展示和后台管理两大模块。  
   - 前台主要是为消费者服务。该子系统实现了注册，登录，以及从浏览、下单到支付的整个流程，支付使用的是支付宝的沙箱环境，属于模拟环境。需要注册沙箱账号才能付款(可用支付账号:ynkltg9762@sandbox.com,密码:111111)。  
@@ -12,9 +14,7 @@
     - 在数据库中创建名为`bookstore`数据库,然后运行项目的`resource`目录下的sql脚本，记得在`application.properties`改数据库配置信息
     - 登录系统的账号和密码，请自行查看数据库下的`user`表 (管理员账号：admin 密码：123)
     - `application.properties`中的邮箱配置要改成自己，否则不能注册系统账号
-    -  使用沙箱环境的支付宝才能扫码支付，`application.properties`中的my.ip要改成自己，否则支付成功回调出错
-## 使用框架
-  - 后台主要是springboot+mybatis+shiro...，前端界面主要使用bootstrap框架搭建，并使用了ueditor富文本编辑器、highcharts图表库  
+    -  使用沙箱环境的支付宝才能扫码支付，`application.properties`中的my.ip要改成自己，否则支付成功回调出错 
 ## 运行项目
   - 方法一：在ide(推荐idea)运行项目,配置好启动环境，先去掉继承的类SpringBootServletInitializer和方法，然后运行main方法
   - 方法二：在项目的根目录下执行maven命令  
