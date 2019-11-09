@@ -14,7 +14,7 @@
     - 在数据库中创建名为`bookstore`数据库,然后运行项目的`resource`目录下的sql脚本，记得在`application.properties`改数据库配置信息
     - 登录系统的账号和密码，请自行查看数据库下的`user`表 (管理员账号：admin 密码：123)
     - `application.properties`中的邮箱配置要改成自己，否则不能注册系统账号
-    -  使用沙箱环境的支付宝才能扫码支付，`application.properties`中的my.ip要改成自己，否则支付成功回调出错 
+    -  使用沙箱环境的支付宝才能扫码支付，`application.properties`中的my.ip要改成自己，有项目名还要加项目名，否则支付成功回调出错 
 ## 运行项目
   - 方法一：在ide(推荐idea)运行项目,配置好启动环境，先去掉继承的类SpringBootServletInitializer和方法，然后运行main方法
   - 方法二：在项目的根目录下执行maven命令  
