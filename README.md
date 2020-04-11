@@ -16,7 +16,7 @@
     - `application.properties`中的邮箱配置要改成自己，否则不能注册系统账号
     -  使用沙箱环境的支付宝才能扫码支付，`application.properties`中的my.ip要改成自己，有项目名还要加项目名，否则支付成功回调出错 
 ## 运行项目
-  - 方法一：在ide(推荐idea)运行项目,配置好启动环境，先去掉继承的类SpringBootServletInitializer和方法，然后运行main方法
+  - 方法一：在ide(推荐idea)运行项目,配置好启动环境，运行main方法, 要去掉继承的类SpringBootServletInitializer和方法
   - 方法二：在项目的根目录下执行maven命令  
     ``` mvn spring-boot:run```
   - 方法三: 在ide或直接用maven打成的war包放到tomcat运行,此时如果访问需要加上项目名的话，支付宝回调地址需要加上项目名称  
