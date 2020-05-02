@@ -19,9 +19,6 @@ public class WriteToMysql {
         long start = System.currentTimeMillis() / 1000;
         System.out.println(start);
         for (BookInfo bookdata : bookdatas) {
-
-        }
-        for (BookInfo bookdata : bookdatas) {
             bookInfoMapper.insert(bookdata);
         }
 
